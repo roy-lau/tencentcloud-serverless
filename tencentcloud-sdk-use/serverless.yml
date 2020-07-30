@@ -1,7 +1,7 @@
-name: tencentcloudSdkUse # (required) name of your koa component instance.
+name: tencentcloud-sdk-use # (required) name of your koa component instance.
 component: koa # (required) name of the component. In that case, it's koa.
-app: tencentcloudSdkUse # (optional) serverless dashboard app. default is the same as the name property.
-stage: dev # (optional) serverless dashboard stage. default is dev.
+app: tencentcloud-sdk-use # (optional) serverless dashboard app. default is the same as the name property.
+stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
   src:
@@ -9,7 +9,7 @@ inputs:
     exclude:
       - .env
   region: ap-beijing
-  runtime: Nodejs12
+  runtime: Nodejs12.16 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs12.16、PHP5、PHP7、Golang1、Java8。
   apigatewayConf:
     protocols:
       - http
