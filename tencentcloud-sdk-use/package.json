@@ -1,0 +1,28 @@
+{
+  "name": "tencentcloud-sdk-use",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sls.js",
+  "scripts": {
+    "dev": "node server.js",
+    "sls:deploy": "serverless deplay",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "腾讯云函数",
+    "无服务器",
+    "腾讯云的SDK使用",
+    "koa"
+  ],
+  "author": "Roylau",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.1.0",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "tencentcloud-sdk-nodejs": "^3.0.220"
+  }
+}
