@@ -5,8 +5,10 @@
   "main": "app.js",
   "scripts": {
     "serve": "nodemon ./index.js",
-    "sls:dev": "sls dev --debug",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sls:deploy": "serverless deploy --debug",
+    "sls:dev": "serverless dev --debug",
+    "sls:remove": "serverless remove",
+    "sls:info": "serverless info"
   },
   "repository": {
     "type": "git",
