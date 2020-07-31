@@ -9,7 +9,7 @@ module.exports = class TencentCloudPkg {
      * @param {String} secretId 秘钥id
      * @param {String} secretKey 秘钥key
      */
-    constructor(secretId = "AKIDxqwUmi3STGZNvIeskyESd4SnV4PgYv9G", secretKey = "82nLn6FNLCq0zjLjsmSAjroWCe5KEF8n") {
+    constructor(secretId = process.env.secretId, secretKey =  process.env.secretKey) {
         const Credential = tencentcloud.common.Credential;
         // 实例化一个认证对象，入参需要传入腾讯云账户 secretId,secretKey
         this.cred = new Credential(secretId, secretKey);

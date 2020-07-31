@@ -3,7 +3,7 @@ const app = require('./app');
 
 const SERVER = http.createServer(app.callback());
 const PORT = process.env.PORT || 3000;
-
+console.log(process.env)
 // 优雅地关闭 DB 连接
 const gracefulShutdown = () => {
     console.error('Shutting down...');

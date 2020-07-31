@@ -1,14 +1,14 @@
-name: tencentcloud-sdk-use # (必选) 组件实例名称.
+name: wechat-official-accounts # (必选) 组件实例名称.
 component: koa # (必填) 该组件创建的实例名称
-app: tencentcloud-sdk-use # (可选) 用于记录组织信息. 默认与name相同，必须为字符串
+app: wechat-official-accounts # (可选) 用于记录组织信息. 默认与name相同，必须为字符串
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
-  functionName: sls-koa-tc-sdk-use # 云函数名称
+  functionName: sls-wechat-official-accounts # 云函数名称
   namespace: sls # 云函数命名空间
-  description: serverless无服务器云函数，使用的koa模板，用于调试腾讯云SDK。 # 云函数描述
-  serviceName: sls_api_gateway # api网关服务名称
-  bucket: sls-tc-sdk-bucket  # bucket name，当前会默认在bucket name后增加 appid 后缀
+  description: serverless无服务器云函数，使用的koa模板，用于微信公众号。 # 云函数描述
+  serviceName: sls_wechat_gateway # api网关服务名称
+  bucket: sls-wechat-official-accounts-bucket  # bucket name，当前会默认在bucket name后增加 appid 后缀
   src:
     src: ./  # 本地需要打包的文件目录
     exclude: # 被排除的文件或目录
@@ -20,4 +20,4 @@ inputs:
     protocols:
       - http
       - https
-    environment: release
+    environment: test

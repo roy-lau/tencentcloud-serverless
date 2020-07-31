@@ -7,31 +7,6 @@ const router = new Router({
   prefix: '/tencentcloud',
 });
 
-// Get all users
-// router.get('/', auth, authz, async (ctx) => {
-//   try {
-//     const result = await User.find({});
-//     ctx.status = 200;
-//     ctx.body = result;
-//   } catch (error) {
-//     ctx.throw(400, error.message);
-//   }
-// });
-
-// // Get one user
-// router.get('/:id', auth, authz, async (ctx) => {
-//   try {
-//     const result = await User.findById(ctx.params.id);
-//     if (!result) {
-//       ctx.throw(404);
-//     }
-//     ctx.status = 200;
-//     ctx.body = result;
-//   } catch (error) {
-//     ctx.throw(400, error.message);
-//   }
-// });
-
 // ocr API
 router.post('/ocr', async (ctx) => {
 
@@ -40,8 +15,8 @@ router.post('/ocr', async (ctx) => {
 
     const uploadsUrl = `https://${ctx.host}/uploads/`
     const params = JSON.parse(ctx.request.body.params)
-    const [fileUrl] = _handleFile(ctx.request.files.imgFiles, uploadsUrl)
     console.log("params:", params)
+    const [fileUrl] = _handleFile(ctx.request.files.imgFiles, uploadsUrl)
     /**
      * 调用封装后腾讯云接口
      */
