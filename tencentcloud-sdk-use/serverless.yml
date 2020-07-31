@@ -1,16 +1,22 @@
-name: tencentcloud-sdk-use # (required) name of your koa component instance.
-component: koa # (required) name of the component. In that case, it's koa.
-app: tencentcloud-sdk-use # (optional) serverless dashboard app. default is the same as the name property.
+name: tencentcloud-sdk-use # (必选) 组件实例名称.
+component: koa # (必填) 该组件创建的实例名称
+app: tencentcloud-sdk-use # (可选) 用于记录组织信息. 默认与name相同，必须为字符串
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
+  functionName: sls-koa-tc-sdk-use # 云函数名称
+  namespace: sls # 云函数命名空间
+  description: serverless无服务器云函数，使用的koa模板，用于调试腾讯云SDK。 # 云函数描述
+  serviceName: sls_api_gateway # api网关服务名称
+  bucket: sls-tc-sdk-bucket  # bucket name，当前会默认在bucket name后增加 appid 后缀
   src:
-    src: ./ # (optional) path to the source folder. default is a hello world app.
-    exclude:
+    src: ./  # 本地需要打包的文件目录
+    exclude: # 被排除的文件或目录
       - .env
   region: ap-beijing
   runtime: Nodejs12.16 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs12.16、PHP5、PHP7、Golang1、Java8。
   apigatewayConf:
+    description: serverless无服务器网关，用于腾讯云SDK。
     protocols:
       - http
       - https
