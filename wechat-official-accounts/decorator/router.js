@@ -93,6 +93,9 @@ const del = path => router({
 
 const convert = middleware => (...args) => decorate(args, middleware)
 
+/**
+ * 打印接口日志
+ */
 const log = convert(async (ctx, next) => {
     let currentReqID = reqID++
     console.time(`${currentReqID} ${ctx.method} ${ctx.url}`)

@@ -2,7 +2,6 @@ const koa = require('koa'),
 
     app = new koa(),
     {resolve} = require('path'),
-    config = require('./config'),
     database = require('./middleware/database.js'),
     general = require('./middleware/general.js'),
     router = require('./middleware/router.js'),
@@ -33,6 +32,4 @@ const useMiddleware = (app) => {
 // 加载中间件
 useMiddleware(app)(MIDDLEWARE)
 
-app.listen(config.port, () => {
-    console.info("服务已启动 》》 " + config.baseUrl+':'+config.port)
-});
+module.exports = app

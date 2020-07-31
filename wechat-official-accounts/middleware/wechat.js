@@ -17,7 +17,7 @@ class Wechat {
         this.getAccessToken = opts.getAccessToken;
         this.saveAccessToken = opts.saveAccessToken;
 
-        // this._init(ctx)
+        this._init(ctx)
 
         this.getAccessToken()
             .then(data => {
