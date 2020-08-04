@@ -21,24 +21,24 @@ fs.readdirSync(models)
 
 module.exports.database = app => {
 
-        if (config.env === 'development') {
-            mongoose.set('debug', true)
-        }
-        // 连接 mongodb
-        mongoose.connect(config.db,{ useNewUrlParser: true,useUnifiedTopology: true })
+    if (config.env === 'development') {
+        mongoose.set('debug', true)
+    }
+    // 连接 mongodb
+    mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true })
 
+    mongoose.connection
         // 断开 mongodb 连接
-        mongoose.connection.on('disconnected', () => {
-            mongoose.connect(config.db,{ useNewUrlParser: true,useUnifiedTopology: true })
+        .on('disconnected', () => {
+            mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true })
         })
 
         // mongodb 出错
-        mongoose.connection.on('error', err => {
+        .on('error', err => {
             console.error(err)
         })
         // 打开 mongodb
-        mongoose.connection.once('open', async () => {
+        .once('open', async () => {
             console.log('MongoDB 连接到 》》', config.db)
-
         })
 }

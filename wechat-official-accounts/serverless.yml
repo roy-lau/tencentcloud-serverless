@@ -1,3 +1,4 @@
+# 参考文档 https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md
 name: wechat-official-accounts # (必选) 组件实例名称.
 component: koa # (必填) 该组件创建的实例名称
 app: wechat-official-accounts # (可选) 用于记录组织信息. 默认与name相同，必须为字符串
@@ -13,10 +14,11 @@ inputs:
     src: ./  # 本地需要打包的文件目录
     exclude: # 被排除的文件或目录
       - .env
-  region: ap-beijing
   runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs12.16、PHP5、PHP7、Golang1、Java8。
+  region: ap-beijing
+  eip: true # true/false 是否开启固定IP
   apigatewayConf:
-    description: serverless无服务器网关，用于腾讯云SDK。
+    description: serverless无服务器网关，用于微信公众号。
     protocols:
       - http
       - https

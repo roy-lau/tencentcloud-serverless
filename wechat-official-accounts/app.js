@@ -7,11 +7,6 @@ const koa = require('koa'),
     router = require('./middleware/router.js'),
     R = require('ramda')
 
-// app.use(bodyParser())
-// app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(database(app))
-// app.use(general(app))
-// app.use(router(app))
 
 
 const r = path => resolve(__dirname, path)

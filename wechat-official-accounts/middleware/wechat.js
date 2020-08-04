@@ -1,6 +1,5 @@
 const Router = require('koa-router'),
-    Promise = require('bluebird'),
-    request = Promise.promisify(require('request')), // 使 request库 支持 Promise
+    request = require('request-promise'),
     sha1 = require('sha1'),
     opts = require('../config/wechat.js')
 
@@ -73,8 +72,7 @@ class Wechat {
         }
 
 
-        let access_token = data.access_token,
-            // 过期时间
+        let // 过期时间
             expires_in = data.expires_in,
             // 当前时间
             now = (new Date().getTime())
