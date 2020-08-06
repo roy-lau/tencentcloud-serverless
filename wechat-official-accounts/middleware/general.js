@@ -4,8 +4,6 @@ const koaBody = require('koa-bodyparser'),
 
 
 module.exports.general = app => {
-    // return async function(ctx, next) {
-
         app.use(koaBody())
         app.use(cors())
 
@@ -20,7 +18,4 @@ module.exports.general = app => {
         }
         app.use(session(CONFIG, app))
 
-
-    //     await next()
-    // }
 }

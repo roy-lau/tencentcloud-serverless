@@ -1,4 +1,4 @@
-const wechatPay = require('../wechat/lib/pay'),
+const wechatPay = require('../wechat-lib/pay'),
   { getWechat, getOAuth } = require('../wechat')
 
 const wechatApi = getWechat()

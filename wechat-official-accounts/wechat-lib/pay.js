@@ -2,7 +2,7 @@ const fs = require('fs'),
  path = require('path'),
  wechatPay = require('wechat-pay'),
 //  sms = require('../libs/sms'),
- config = require('../../config')
+ config = require('../config')
 
 const Payment = wechatPay.Payment
 const appId = config.shop.appID

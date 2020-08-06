@@ -7,8 +7,7 @@ const request = require('request-promise'),
 const tip = '终于等到你~ 还好没放弃~ \n' +
     '你就是我等待千年的那只…… /坏笑\n' +
     '是不是觉得我很聪明/疑问 no？ 我有以下这些能力呢！\n' +
-    '日期查询\n列车查询\n数字计算\n快递查询\n菜谱大全\n天气查询\n图片搜索\n星座运势\n新闻资讯\n成语接龙\n故事大全\n聊天对话\n笑话大全\n城市邮编\n顺口溜\n绕口令\n歇后语\n股票查询\n汽油报价\n脑筋急转弯\n附近酒店\n中英互译'+
-    '或者点击 <a href="' + config.SITE_ROOT_URL + '/exam">开始查身份</a>'
+    '日期查询\n列车查询\n数字计算\n快递查询\n菜谱大全\n天气查询\n图片搜索\n星座运势\n新闻资讯\n成语接龙\n故事大全\n聊天对话\n笑话大全\n城市邮编\n顺口溜\n绕口令\n歇后语\n股票查询\n汽油报价\n脑筋急转弯\n附近酒店\n中英互译'
 
 const sayHi = '你好呀！/坏笑'
 
@@ -41,29 +40,29 @@ module.exports = async (ctx, next) => {
                     description: 'my github，Where there is life, struggle',
                     picUrl: 'https://avatars0.githubusercontent.com/u/22829291?s=400&u=b291223649da14dfcb7e95a39a205d73acefc5be&v=4',
                     url: 'https://github.com/roy-lau'
-                },{
+                }, {
                     title: 'RoyLau yuque',
                     description: '我的语雀博客知识库',
                     picUrl: 'https://cdn.nlark.com/yuque/0/2019/jpeg/anonymous/1565053269508-38580540-738f-4433-8806-f2a910aac549.jpeg?x-oss-process=image%2Fresize%2Cm_fill%2Cw_192%2Ch_192%2Fformat%2Cpng',
                     url: 'https://www.yuque.com/roylau/blog'
                 }]
-            }else if (message.EventKey === 'batchMaterial') {
+            } else if (message.EventKey === 'batchMaterial') {
                 const res = await client.handle('batchMaterial') // 获取永久素材
-                ctx.body = JSON.stringify(res,null,2)
+                ctx.body = JSON.stringify(res, null, 2)
             }
         } else {
             ctx.body = tip
         }
-    /**
-     * 文本
-     * @param  {[type]} message.MsgType [text]
-     * @return {[type]}                 [图灵机器人返回的文本]
-     */
+        /**
+         * 处理接收文本的回复
+         * @param  {[type]} message.MsgType [text]
+         * @return {[type]}                 [图灵机器人返回的文本]
+         */
     } else if (message.MsgType === 'text') {
         if (message.Content === '获取菜单') {
             const res = await client.handle('getCurrentMenuInfo')
-            ctx.body = JSON.stringify(res,null,2)
-        }else if (message.Content === '更新菜单') {
+            ctx.body = JSON.stringify(res, null, 2)
+        } else if (message.Content === '更新菜单') {
             let menuMsg
             try {
                 await client.handle('delMenu')
@@ -71,13 +70,13 @@ module.exports = async (ctx, next) => {
                 console.error('删除菜单失败')
                 console.error(e)
 
-                menuMsg = '删除失败'+e
+                menuMsg = '删除失败' + e
             }
 
             try {
                 const menu = require('./menu')
                 const res = await client.handle('createMenu', menu)
-                menuMsg = '创建成功 /擦汗\n'+res
+                menuMsg = '创建成功 /擦汗\n' + res
             } catch (err) {
                 console.error('创建菜单失败')
                 console.error(err)
@@ -85,7 +84,7 @@ module.exports = async (ctx, next) => {
 
             ctx.body = menuMsg
         } else if (message.Content === 'hi' || message.Content === 'hello') {
-            ctx.body = sayHi
+            ctx.body = sayHi + `<a href="https://${ctx.host}/test/fetchUserList">获取用户列表</a>`
         } else {
             /*
               调用图灵机器人处理文本消息

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
 	 config = require('../config'),
-	 Wechat = require('./lib'),
-	 WechatOAuth = require('./lib/oauth'),
+	 Wechat = require('../wechat-lib'),
+	 WechatOAuth = require('../wechat-lib/oauth'),
 
 	 Token = mongoose.model('Token'),
 	 Ticket = mongoose.model('Ticket')

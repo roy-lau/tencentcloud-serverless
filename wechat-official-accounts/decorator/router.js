@@ -125,18 +125,18 @@ const required = rules => convert(async (ctx, next) => {
 
 
 module.exports = {
-    symbolPrefix: symbolPrefix,
-    routersMap: routersMap,
-    isArray: isArray,
-    normalizePath: normalizePath,
-    Route: Route,
-    router: router,
-    controller: controller,
-    get: get,
-    post: post,
-    put: put,
-    del: del,
-    convert: convert,
-    log: log,
-    required: required
+    symbolPrefix,
+    routersMap,
+    isArray,
+    normalizePath,
+    Route,
+    router,
+    controller,
+    get,
+    post,
+    put,
+    del,
+    convert,
+    log,
+    required
 }

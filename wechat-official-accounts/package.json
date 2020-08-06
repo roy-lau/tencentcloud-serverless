@@ -12,7 +12,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/roy-lau/tencentcloud-sls.git"
+    "url": "https://github.com/roy-lau/tencentcloud-sls.git",
+    "ref": "https://github.com/huanglong-zz/ice"
   },
   "author": "roy-lau",
   "license": "ISC",
@@ -29,7 +30,6 @@
     "nodemon": "^1.18.11",
     "ramda": "^0.26.1",
     "raw-body": "^2.3.3",
-    "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "sha1": "^1.1.1",
     "wechat-pay": "^0.3.2",

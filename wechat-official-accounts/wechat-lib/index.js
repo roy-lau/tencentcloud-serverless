@@ -639,6 +639,6 @@ module.exports = class Wechat {
         }
     */
     sign (ticket, url) {
-        return sign(ticket, url)
+        sign(ticket, url)
     }
 }

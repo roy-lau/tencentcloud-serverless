@@ -19,7 +19,6 @@ inputs:
   eip: true # true/false 是否开启固定IP
   apigatewayConf:
     description: serverless无服务器网关，用于微信公众号。
-    protocols:
-      - http
+    protocols: 
       - https
     environment: test
