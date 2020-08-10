@@ -12,7 +12,13 @@ const request = require('request-promise'),
         // 临时素材相关接口
         temporary: {
             upload: base + 'media/upload?',
-            fetch: base + 'media/get?'
+            fetch: base + 'media/get?',
+            // 提交语音
+            addVoice: base + 'media/voice/addvoicetorecofortext?',
+            // 获取语音识别结果(请注意，提交语音之后10s内调用这个接口)
+            queryVoice: base + 'media/voice/queryrecoresultfortext?',
+            // 微信翻译
+            translateVoice: base + 'media/voice/translatecontent?'
         },
         // 永久 素材相关的接口列表
         permanent: {
@@ -198,7 +204,7 @@ module.exports = class Wechat {
         return data
     }
 
-    /************** 素材相关 *************/
+    /************** 素材相关（包括临时永久素材） *************/
 
     /**
      * 新增素材
@@ -296,6 +302,51 @@ module.exports = class Wechat {
 
         return options
     }
+    /**
+     * 提交语音
+     * @param {String} token 凭证
+     * @param {String} format 文件格式 （只支持mp3，16k，单声道，最大1M）
+     * @param {String} voiceId 语音唯一标识
+     * @param {Object} body 语音内容放body里或者上传文件的形式
+     * @param {String} lang 语言，zh_CN 或 en_US，默认中文
+     */
+    addVoice (token, format = 'mp3', voiceId, body, lang = 'zh_CN') {
+        const form = {
+            media_id: mediaId
+        }
+        const url = api.temporary.addVoice + 'access_token=' + token + '&format' + format + '&voice_id' + voiceId + '&lang' + lang
+
+        return { method: 'POST', url: url, body: body }
+    }
+    /**
+     * 获取语音识别结果(请注意，提交语音之后10s内调用这个接口)
+     * @param {String} token 凭证
+     * @param {String} voiceId 语音唯一标识
+     * @param {String} lang 语言，zh_CN 或 en_US，默认中文
+     */
+    queryVoice (token, voiceId, lang = 'zh_CN') {
+        const form = {
+            voice_id: voiceId
+        }
+        const url = api.temporary.queryVoice + 'access_token=' + token + '&voice_id' + voiceId + '&lang' + lang
+
+        return { method: 'POST', url: url, body: form }
+    }
+    /**
+     * 微信翻译
+     * @param {String} token 凭证
+     * @param {String} lfrom 源语言，zh_CN 或 en_US，默认中文
+     * @param {String} lto 目标语言，zh_CN 或 en_US，默认中文
+     * @param {Object} body 源内容放body里或者上传文件的形式（utf8格式，最大600Byte)
+     */
+    translateVoice (token, lfrom='zh_CN', lto = 'zh_CN',body) {
+  
+        const url = api.temporary.translateVoice + 'access_token=' + token + '&lfrom' + lfrom + '&lto' + lto
+
+        return { method: 'POST', url: url }
+    }
+
+
     /**
      * 删除素材（只有永久素材需要删除，临时素材3天自动删除）
      * @param {Sting} token 凭证

@@ -8,7 +8,8 @@
     "sls:deploy": "serverless deploy --debug",
     "sls:dev": "serverless dev --debug",
     "sls:remove": "serverless remove",
-    "sls:info": "serverless info"
+    "sls:info": "serverless info",
+    "test": "mocha __test__/*.js --watch"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,8 @@
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-decorators": "^7.4.0",
-    "@babel/register": "^7.4.0"
+    "@babel/register": "^7.4.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1"
   }
 }
