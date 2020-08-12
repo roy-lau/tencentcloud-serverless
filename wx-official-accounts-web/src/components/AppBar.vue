@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar absolute>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <v-app-bar absolute color="white" flat :style="{'left':styleLeft}">
+    <v-app-bar-nav-icon @click="setDrawer" />
 
     <v-toolbar-title>微信公众号管理后台</v-toolbar-title>
 
@@ -34,6 +34,26 @@
 export default {
   name: "AppBar",
 
-  data: () => ({}),
+  data: () => ({
+    showDrawer: true,
+  }),
+
+  mounted() {
+    console.log(this.$vuetify.breakpoint);
+  },
+
+  computed: {
+    styleLeft() {
+      if (!this.$vuetify.breakpoint.mobile)
+        return this.showDrawer ? "260px" : "0px";
+    },
+  },
+
+  methods: {
+    setDrawer() {
+      this.showDrawer = !this.showDrawer;
+      this.$emit("on-drawer", this.showDrawer);
+    },
+  },
 };
 </script>

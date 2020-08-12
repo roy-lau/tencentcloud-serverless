@@ -1,13 +1,13 @@
 <template>
   <v-navigation-drawer
     id="core-navigation-drawer"
-    v-model="drawer"
-    :expand-on-hover="showDrawer"
-    src="https://demos.creative-tim.com/material-dashboard/assets/img/sidebar-1.jpg"
-    mobile-breakpoint="960"
     app
+    :value="showDrawer"
+    mobile-breakpoint="960"
+    src="https://picsum.photos/1920/1080?random"
     width="260"
   >
+    <!-- src="https://demos.creative-tim.com/material-dashboard/assets/img/sidebar-1.jpg" -->
     <template v-slot:img="props">
       <v-img color="transparent" v-bind="props" />
     </template>
@@ -77,9 +77,9 @@ export default {
         to: "/typography",
       },
       {
-        title: "icons",
+        title: "AI",
         icon: "mdi-chart-bubble",
-        to: "/components/icons",
+        to: "/smart",
       },
       {
         title: "通知中心",

@@ -1,12 +1,11 @@
 <template>
   <v-app>
-    <AppBar />
-    <Drawer />
+    <AppBar @on-drawer="(drawer)=> showDrawer=drawer" />
+    <Drawer :show-drawer="showDrawer" />
 
-    <v-main>
+    <v-main class="main-warp grey lighten-5">
       <router-view />
     </v-main>
-    
   </v-app>
 </template>
 
@@ -22,8 +21,17 @@ export default {
     Drawer,
   },
 
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      showDrawer: true,
+    };
+  },
+
+  methods: {},
 };
 </script>
+<style scoped>
+.main-warp {
+  margin-top: 64px;
+}
+</style>
