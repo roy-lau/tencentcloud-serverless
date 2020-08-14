@@ -11,8 +11,8 @@
     "key": "key"
   },
   "wechat": {
-    "appID": "wxc8b548262f4b7535",
-    "appSecret": "0ab619dc04882cf172c6f91177256b3a",
+    "appID": "wxfe4fbc760bb3104a",
+    "appSecret": "cfb31e1c34c222d5bb8422c7847d47af",
     "baseUrl": "http://f987e3a1.ngrok.io/hear",
     "token": "roylau"
   },

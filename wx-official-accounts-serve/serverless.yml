@@ -16,7 +16,9 @@ inputs:
       - .env
   runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs12.16、PHP5、PHP7、Golang1、Java8。
   region: ap-beijing
-  eip: true # true/false 是否开启固定IP
+  functionConf:
+    # 固定出口 IP
+    eip: true # true/false 是否开启固定IP
   apigatewayConf:
     description: serverless无服务器网关，用于微信公众号。
     protocols: 

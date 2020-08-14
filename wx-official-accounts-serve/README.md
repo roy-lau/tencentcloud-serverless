@@ -11,8 +11,8 @@
     ├─decorator     # 装饰器
     ├─middleware    # 中间件
     ├─routes        # 路由
-    └─wechat        # 微信相关
-        └─lib
+    ├─wechat        # 微信相关
+    └─lib           # 微信相关的 lib
 ```
 
 ### 腾讯云无服务器开发
