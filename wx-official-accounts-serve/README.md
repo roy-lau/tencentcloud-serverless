@@ -17,6 +17,15 @@
 
 ### 腾讯云无服务器开发
 
-```
+```sh
+    # 本地开发
+    yarn serve
+    # serverless 删除
+    yarn sls:remove
+    # serverless 查看信息
+    yarn sls:info
+    # serverless 开发
     yarn sls:dev
+    # serverless 部署
+    yarn sls:deploy
 ```
